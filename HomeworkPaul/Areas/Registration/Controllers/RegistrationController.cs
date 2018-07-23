@@ -1,17 +1,16 @@
 ﻿using System.Web.Mvc;
 using HomeworkPaul.Areas.Registration.Models;
-using HomeworkPaul.Areas.Registration.Repository;
 
 namespace HomeworkPaul.Areas.Registration.Controllers
 {
     [AllowAnonymous]
     public class RegistrationController : Controller
     {
-        private readonly IRegistrationRepository _registrationRepository;
+        private readonly RegistrationFacade _registrationFacade;
 
-        public RegistrationController(IRegistrationRepository registrationRepository)
+        public RegistrationController(RegistrationFacade registrationFacade)
         {
-            _registrationRepository = registrationRepository;
+            _registrationFacade = registrationFacade;
         }
 
         [HttpGet]
@@ -29,12 +28,15 @@ namespace HomeworkPaul.Areas.Registration.Controllers
                 return View(registrationDetails);
             }
             
-            _registrationRepository.CreateUser(registrationDetails);
+            var result = _registrationFacade.RegisterUser(registrationDetails);
 
-            //TODO: show DONE! page
-            return RedirectToAction("Index");
+            return View("Completed", result);
         }
 
-
+        [HttpGet]
+        public ActionResult Completed()
+        {
+            return View();
+        }
     }
 }

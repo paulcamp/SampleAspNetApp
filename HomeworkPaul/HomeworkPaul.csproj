@@ -161,9 +161,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Registration\Controllers\RegistrationController.cs" />
     <Compile Include="Areas\Registration\RegistrationAreaRegistration.cs" />
+    <Compile Include="Areas\Registration\RegistrationFacade.cs" />
+    <Compile Include="Areas\Registration\Models\RegistrationResult.cs" />
     <Compile Include="Areas\Registration\Repository\IRegistrationRepository.cs" />
     <Compile Include="Areas\Registration\Repository\RegistrationRepository.cs" />
-    <Compile Include="Common\PasswordHashing.cs" />
+    <Compile Include="Common\IPasswordHasher.cs" />
+    <Compile Include="Common\PasswordHasher.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,6 +187,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Registration\Completed.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

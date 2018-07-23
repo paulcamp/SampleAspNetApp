@@ -35,3 +35,26 @@ BEGIN
 	INSERT INTO [dbo].[UserDetails] VALUES (@FirstName,	@Surname, @Email, @PasswordHash)
 END
 
+GO
+
+
+IF (SELECT OBJECT_ID('dbo.DoesEmailAddressExist','P')) IS NOT NULL 
+	BEGIN
+		PRINT 'Procedure already exists. So, dropping it'
+		DROP PROC [dbo].[DoesEmailAddressExist]
+	END
+GO
+
+CREATE PROCEDURE [dbo].[DoesEmailAddressExist]
+	@Email VARCHAR(320)
+AS
+	IF EXISTS
+	(
+		SELECT NULL 
+		FROM [UserDetails]
+		WHERE [Email] = @Email
+	)
+		SELECT 1
+	ELSE
+		SELECT 0
+GO

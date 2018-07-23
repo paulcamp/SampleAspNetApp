@@ -1,0 +1,37 @@
+﻿@model HomeworkPaul.Areas.Registration.Models.RegistrationResult
+
+@{
+    ViewBag.Title = "Whitelabel User Registration";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    
+<div class="form-horizontal">
+    <hr />
+
+    @if( @Model.Success)
+    {
+
+    <div class="form-group">
+        <div class="col-md-10 alert-success">
+            @Html.DisplayFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    }
+    else
+    {
+    <div class="form-group">
+        <div class="col-md-10 alert-danger">
+            @Html.DisplayFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    }
+
+</div>
+}
+
+
+

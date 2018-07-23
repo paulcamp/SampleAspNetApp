@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using HomeworkPaul.Areas.Registration.Repository;
+using HomeworkPaul.Common;
 using Ninject;
 using Ninject.Web.Common.WebHost;
 
@@ -21,7 +22,7 @@ namespace HomeworkPaul
         {
             var registrationConnectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
             kernel.Bind<IRegistrationRepository>().To<RegistrationRepository>().WithConstructorArgument("connectionString", registrationConnectionString);
-
+            kernel.Bind<IPasswordHasher>().To<PasswordHasher>();
         }
 
         protected override void OnApplicationStarted()
