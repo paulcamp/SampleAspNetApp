@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace HomeworkPaul.Areas.Registration.Models
 {
     public class RegistrationDetails
     {
-        
         [MaxLength(255)]
+        [DisplayName("First Name")]
         [RegularExpression(@"^[a-zA-Záéíóúüñ¿¡ÁÉÍÓÚÜÑ' -]{1,}$", ErrorMessage = "Unsupported characters entered, please try again")]
         public string FirstName { get; set; }
         [MaxLength(255)]
@@ -21,6 +22,7 @@ namespace HomeworkPaul.Areas.Registration.Models
         public string Password { get; set; }
         [Required]
         [Compare("Password")]
+        [DisplayName("Confirm Password")]
         public string ConfirmPassword { get; set; }
     }
 }
