@@ -22,11 +22,11 @@ Configure your SQL Server database connection string in web.config:
 
 # Areas for improvement
 
-* Email confirmation step could be added before storing an anonymous user - SendGrid or similar could be used to do this.
-* Registration page could be throttled to avoid spamming
-* AJAX could be used to check if the email address already exists before submitting the form but I have purposely avoided any hand-crafted JavaScript in this example.
-* Strings used in the UI should probably live in a resource to allow for easier internationalisation
+* An Email confirmation step could be added before storing an unconfirmed user - SendGrid or similar could be used to do this.
+* Registration page could be throttled to avoid spamming.
+* AJAX could be used to check if the email address already exists in the repository before submitting the form but I have purposely avoided any hand-crafted JavaScript in this example.
+* Strings used in the UI should probably live in a resource to allow for easier internationalisation in the future.
 * Analytics could be used to capture number of new registrations, failures, etc.
-* PasswordHasher could be swapped for a non-copyrighted alternative - it was used in the interests of time constraints and not having to re-invent the wheel.
+* The PBKDF2 PasswordHasher could be swapped for a non-copyrighted alternative - it was used in the interests of time constraints and not having to re-invent the wheel.
 * The SQL database table may benefit from an index that includes the Email column when the data grows to a substantial size.
 
