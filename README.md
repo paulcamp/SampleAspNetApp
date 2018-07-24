@@ -4,6 +4,19 @@ An ASP.NET MVC Sample that stores a user email and password to a repo without us
 # Setup
 Create a blank SQL Server database and run the following script against it: SQLServer-Setup.sql
 
+# Configuration
+
+Configure your SQL Database connection string in web.config
+
+````csharp
+<connectionStrings>
+    <add name="DB"
+         providerName="System.Data.SqlClient"
+         connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=YOURDATABASENAME;Integrated Security=True"/>
+  </connectionStrings>
+````
+
+
 # Areas for improvement
 
 * PasswordHasher could be swapped for a non-copyrighted alternative - it was used in the interests of time constraints and not having to re-invent the wheel.
