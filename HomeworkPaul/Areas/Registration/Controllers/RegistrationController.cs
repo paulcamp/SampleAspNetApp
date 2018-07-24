@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using HomeworkPaul.Areas.Registration.Models;
+using HomeworkPaul.Extensions;
 
 namespace HomeworkPaul.Areas.Registration.Controllers
 {
@@ -29,9 +30,7 @@ namespace HomeworkPaul.Areas.Registration.Controllers
             }
             
             var result = _registrationFacade.RegisterUser(registrationDetails);
-
-            TempData["SuccessMessage"] = result.Success ? result.Message : string.Empty;
-            TempData["ErrorMessage"] = result.Success ? string.Empty : result.Message;
+            this.AddNotification(result.Message, result.Success ? NotificationType.SUCCESS : NotificationType.ERROR);
 
             return RedirectToAction("Index");
         }
