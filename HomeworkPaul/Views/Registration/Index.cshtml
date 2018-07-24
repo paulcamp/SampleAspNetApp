@@ -19,7 +19,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-9">
-                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                     @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -27,7 +27,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-9">
-                    @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                     @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <div class="form-group required">
                 @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-9">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -43,7 +43,7 @@
             <div class="form-group required">
                 @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-4" })
                 <div class="col-md-9">
-                    @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -51,7 +51,7 @@
             <div class="form-group required">
                 @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-4" })
                 <div class="col-md-9">
-                    @Html.PasswordFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.PasswordFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                     @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -76,8 +76,7 @@
                 <br />
                 <label>Your password must not contain -</label>
                 <ul>
-                    <li>Repeated characters.</li>
-
+                    <li>Repeated characters</li>
                 </ul>
             </div>
         </div>

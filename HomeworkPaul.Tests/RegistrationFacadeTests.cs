@@ -10,8 +10,8 @@ namespace HomeworkPaul.Tests
     [TestFixture]
     public class RegistrationFacadeTests
     {
-        private  Mock<IRegistrationRepository> _mockRegistrationRepository;
-        private  Mock<IPasswordHasher> _mockPasswordHasher;
+        private Mock<IRegistrationRepository> _mockRegistrationRepository;
+        private Mock<IPasswordHasher> _mockPasswordHasher;
         private RegistrationFacade _registrationFacade;
         private RegistrationDetails _registrationDetails;
 
@@ -20,7 +20,8 @@ namespace HomeworkPaul.Tests
         {
             _mockRegistrationRepository = new Mock<IRegistrationRepository>();
             _mockPasswordHasher = new Mock<IPasswordHasher>();
-            _registrationFacade = new RegistrationFacade(_mockRegistrationRepository.Object, _mockPasswordHasher.Object);
+            _registrationFacade =
+                new RegistrationFacade(_mockRegistrationRepository.Object, _mockPasswordHasher.Object);
             _registrationDetails = new RegistrationDetails {Email = "x.y@z.com", Password = "PAssword1!"};
         }
 

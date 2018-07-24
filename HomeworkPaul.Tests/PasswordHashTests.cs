@@ -7,7 +7,7 @@ namespace HomeworkPaul.Tests
     [TestFixture]
     public class PasswordHashTests
     {
-        private PasswordHasher _passwordHasher;
+        private readonly PasswordHasher _passwordHasher;
 
         public PasswordHashTests()
         {
@@ -54,7 +54,7 @@ namespace HomeworkPaul.Tests
             //arrange
             var input = "testString1234";
             var hash = _passwordHasher.CreateHash(input);
-            
+
             //act
             var result = _passwordHasher.ValidatePassword(input, hash);
 
@@ -77,6 +77,5 @@ namespace HomeworkPaul.Tests
             Assert.AreNotEqual(tamperedHash, hash);
             Assert.False(result);
         }
-
     }
 }

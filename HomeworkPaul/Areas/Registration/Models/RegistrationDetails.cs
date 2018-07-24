@@ -5,7 +5,6 @@ namespace HomeworkPaul.Areas.Registration.Models
 {
     public class RegistrationDetails
     {
-        
         [MaxLength(255)]
         [DisplayName("First Name")]
         [RegularExpression(@"^[a-zA-Záéíóúüñ¿¡ÁÉÍÓÚÜÑ' -]{1,}$", ErrorMessage = "Unsupported characters entered, please try again")]
