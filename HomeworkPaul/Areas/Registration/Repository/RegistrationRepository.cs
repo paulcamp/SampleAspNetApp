@@ -5,7 +5,6 @@ using HomeworkPaul.Areas.Registration.Models;
 
 namespace HomeworkPaul.Areas.Registration.Repository
 {
-    //TODO: need a facade class to wrap repo and hashing
     public class RegistrationRepository : IRegistrationRepository
     {
         private readonly string _connectionString;
@@ -17,7 +16,6 @@ namespace HomeworkPaul.Areas.Registration.Repository
 
         public int CreateUser(RegistrationDetails registrationDetails)
         {
-
             using (var connection = new SqlConnection(_connectionString))
             {
                 using (var command = new SqlCommand("InsertUser", connection))
@@ -65,7 +63,6 @@ namespace HomeworkPaul.Areas.Registration.Repository
                         return false;
                     }
 
-                    // at least one row; first cell was non-null
                     int status = (int) result;
                     return status == 1;
                 }

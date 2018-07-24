@@ -1,5 +1,3 @@
-
-
 IF  EXISTS (SELECT * FROM sys.objects 
 WHERE object_id = OBJECT_ID(N'[dbo].[UserDetails]') AND type in (N'U'))
 BEGIN
@@ -16,14 +14,12 @@ CREATE TABLE [dbo].[UserDetails](
 ) ON [PRIMARY]
 GO
 
-
 IF (SELECT OBJECT_ID('dbo.InsertUser','P')) IS NOT NULL 
 	BEGIN
 		PRINT 'Procedure already exists. So, dropping it'
 		DROP PROC [dbo].[InsertUser]
 	END
 GO
-
 
 CREATE PROCEDURE [dbo].[InsertUser]
 	@FirstName NVARCHAR(255),
@@ -34,7 +30,6 @@ AS
 BEGIN
 	INSERT INTO [dbo].[UserDetails] VALUES (@FirstName,	@Surname, @Email, @PasswordHash)
 END
-
 GO
 
 
@@ -48,6 +43,7 @@ GO
 CREATE PROCEDURE [dbo].[DoesEmailAddressExist]
 	@Email VARCHAR(320)
 AS
+BEGIN
 	IF EXISTS
 	(
 		SELECT NULL 
@@ -57,4 +53,5 @@ AS
 		SELECT 1
 	ELSE
 		SELECT 0
+END
 GO
