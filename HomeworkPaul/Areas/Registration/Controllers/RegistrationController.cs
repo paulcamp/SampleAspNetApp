@@ -30,13 +30,10 @@ namespace HomeworkPaul.Areas.Registration.Controllers
             
             var result = _registrationFacade.RegisterUser(registrationDetails);
 
-            return View("Completed", result);
-        }
+            TempData["SuccessMessage"] = result.Success ? result.Message : string.Empty;
+            TempData["ErrorMessage"] = result.Success ? string.Empty : result.Message;
 
-        [HttpGet]
-        public ActionResult Completed()
-        {
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
