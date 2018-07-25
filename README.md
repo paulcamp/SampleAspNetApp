@@ -28,5 +28,6 @@ Configure your SQL Server database connection string in web.config:
 * Strings used in the UI should probably live in a resource to allow for easier internationalisation in the future.
 * Analytics could be used to capture number of new registrations, failures, etc.
 * The PBKDF2 PasswordHasher could be swapped for a non-copyrighted alternative - it was used in the interests of time constraints and not having to re-invent the wheel.
+* Exception handling - custom error handling for a better UX.
 * The SQL database table may benefit from an index that includes the Email column when the data grows to a substantial size.
 
